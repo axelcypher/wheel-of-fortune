@@ -1,7 +1,10 @@
 module.exports = function(grunt) {
 
     var rewrite = require('connect-modrewrite');
-
+    var googleSheet = process.env.GOOGLE_SHEETS_ID;
+    var apiKey = process.env.GOOGLE_API_KEY;
+    
+    
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         jshint: {
@@ -53,7 +56,7 @@ module.exports = function(grunt) {
                     data: {
                         appTitle: 'Wheel of Fortune',
                         baseUrl: '/',
-                        initialRoute: 'wheel/data:google_sheet,id=<sheet_id>,api_key=<api_key>'
+                        initialRoute: 'wheel/data:google_sheet,id='+googleSheet+',api_key='+apiKey
                     }
                 },
                 files: {
